@@ -7,6 +7,7 @@ module.exports = {
     'plugin:vue/vue3-essential',
     '@vue/airbnb',
     '@vue/typescript/recommended',
+    'plugin:storybook/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -17,10 +18,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true,
       },
