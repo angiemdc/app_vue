@@ -1,0 +1,30 @@
+@import 'src/assets/styles/main';
+
+.storybook-button {
+    @extend %btn;
+    color: $white;
+    font-weight: 500;
+    height: 100%;
+}
+.storybook-button--primary {
+   background-color: $red;
+}
+.storybook-button--secondary {
+  background: rgba(50, 50, 50, 0.8);
+  border: none;
+  opacity: 0.7;
+}
+.storybook-button--small {
+  font-size: 12px;
+  padding: em(4) em(14);
+}
+.storybook-button--medium {
+  font-size: 14px;
+  
+  padding: em(4) em(16);
+}
+.storybook-button--large {
+  font-size: 16px;
+  line-height: em(20);
+  padding: em(5) em(18);
+}

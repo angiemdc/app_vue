@@ -1,0 +1,13 @@
+$font-size-base: 16 !default;
+
+@function em($pxval, $base: $font-size-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+
+  @return calc(($pxval / $base) * 1em);
+}

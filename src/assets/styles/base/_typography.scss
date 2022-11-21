@@ -1,0 +1,15 @@
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $grey-dark;
+  padding: em(48);
+
+  box-sizing: border-box;
+}
+
+%base-text {
+  font-size: em(20);
+  font-weight: 500;
+  line-height: em(24.38);
+}

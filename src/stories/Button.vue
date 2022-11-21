@@ -1,9 +1,9 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <button type="button" :class="classes" @click="onClick">{{ label }}</button>
 </template>
 
 <script>
-import './button.css';
+import './button.scss';
 import { reactive, computed } from 'vue';
 
 export default {
@@ -20,7 +20,7 @@ export default {
     },
     size: {
       type: String,
-      validator: function (value) {
+      validator(value) {
         return ['small', 'medium', 'large'].indexOf(value) !== -1;
       },
     },
@@ -32,21 +32,18 @@ export default {
   emits: ['click'],
 
   setup(props, { emit }) {
-    props = reactive(props);
+    const btnProps = reactive(props);
     return {
       classes: computed(() => ({
         'storybook-button': true,
-        'storybook-button--primary': props.primary,
-        'storybook-button--secondary': !props.primary,
-        [`storybook-button--${props.size || 'medium'}`]: true,
-      })),
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor,
+        'storybook-button--primary': btnProps?.primary,
+        'storybook-button--secondary': !btnProps?.primary,
+        [`storybook-button--${btnProps?.size || 'medium'}`]: true,
       })),
       onClick() {
         emit('click');
-      }
-    }
+      },
+    };
   },
 };
 </script>

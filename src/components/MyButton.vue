@@ -1,6 +1,5 @@
 <template>
   <button class="button is-primary" @click="onClick">
-    <!-- @slot default inner button content -->
     <slot></slot>
   </button>
 </template>
@@ -11,11 +10,6 @@ export default {
 
   methods: {
     onClick() {
-      /**
-       * Click event
-       *
-       * @event click
-       */
       this.$emit('click');
     },
   },

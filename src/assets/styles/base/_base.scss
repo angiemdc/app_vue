@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* es mejor practicar poner el  box-sizing: border-box; en el body y heredarla aca todos sus hijos*/
+}
+
+html {
+  font-size: 62.5%;
+  /* es malo manipular el font-size directo del root del pagina dado que le quita la habilidad al usuario de modificarlo, por que siempre es buena practica ponerlo en % */
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  background-color: $grey-light;
+}
