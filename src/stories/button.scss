@@ -15,16 +15,15 @@
   opacity: 0.7;
 }
 .storybook-button--small {
-  font-size: 12px;
+  font-size: em(15);
   padding: em(4) em(14);
 }
 .storybook-button--medium {
-  font-size: 14px;
-  
+  font-size: em(20);
   padding: em(4) em(16);
 }
 .storybook-button--large {
-  font-size: 16px;
+  font-size: em(25);
   line-height: em(20);
   padding: em(5) em(18);
 }

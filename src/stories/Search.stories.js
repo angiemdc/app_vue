@@ -1,9 +1,8 @@
-import HeaderMovie from './Header.vue';
+import SearchInput from './Search.vue';
 
-// eslint-disable-next-line storybook/story-exports
 export default {
-  title: 'Example/Header',
-  component: HeaderMovie,
+  title: 'Example/Search',
+  component: SearchInput,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/vue/configure/story-layout
     layout: 'fullscreen',
@@ -12,24 +11,17 @@ export default {
 
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { HeaderMovie },
+  components: { SearchInput },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     // Story args can be spread into the returned object
     return { ...args };
   },
   // Then, the spread values can be accessed directly in the template
-  template: '<header-movie/>',
+  template: '<search-input :placeholder="placeholder"/>',
 });
 
-export const LoggedIn = Template.bind({});
-// LoggedIn.args = {
-//   user: {
-//     name: 'Jane Doe',
-//   },
-// };
-
-// export const LoggedOut = Template.bind({});
-// LoggedOut.args = {
-//   user: null,
-// };
+export const Search = Template.bind({});
+Search.args = {
+  placeholder: 'What do you want to watch?',
+};

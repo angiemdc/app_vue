@@ -1,0 +1,17 @@
+@import 'src/assets/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  height: $header-height;
+  padding: em(20);
+  margin-bottom: em(20);
+  background-color: $black;
+}
+
+
+
+
+
+
