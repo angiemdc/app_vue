@@ -1,6 +1,6 @@
 @import 'src/assets/styles/main.scss';
 
-.wrapper {
+.header {
   display: flex;
   flex-direction: column;
   min-width: 100%;
@@ -8,10 +8,28 @@
   padding: em(20);
   margin-bottom: em(20);
   background-color: $black;
+  &-withImage {
+    background-image: url('../assets/images/Bitmap.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+  }
+  h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: em(40);
+    line-height: em(49);
+    color: $white;
+  }
+  .navSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    &:first-child {
+      align-self: flex-start;
+    }
+  }
 }
-
-
-
-
-
 

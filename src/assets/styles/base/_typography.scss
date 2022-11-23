@@ -13,3 +13,26 @@ body {
   font-weight: 500;
   line-height: em(24.38);
 }
+
+
+%heading {
+  font-weight: 400;
+  color: $white;
+}
+
+.heading-1 {
+  @extend %heading;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+.heading-2 {
+  @extend %heading;
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+}
+.heading-3 {
+  @extend %heading;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
