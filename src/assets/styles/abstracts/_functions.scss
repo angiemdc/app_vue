@@ -9,5 +9,5 @@ $font-size-base: 16 !default;
     $base: strip-units($base);
   }
 
-  @return calc(($pxval / $base) * 1em);
+  @return calc(($pxval / $base) * 1rem);
 }

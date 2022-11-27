@@ -1,5 +1,5 @@
 <template>
-  <section class='search__content'>
+  <section class='search__filters'>
       <h5>{{serchTitle}}</h5>
       <my-button
         :primary="isActive"
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import './search.scss';
-import MyButton from './Button.vue';
+import './searchfilter.scss';
+import MyButton from '../Button/Button.vue';
 
 export default {
   name: 'search-by',

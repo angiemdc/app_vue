@@ -1,0 +1,25 @@
+ @import 'src/assets/styles/main.scss';
+
+ .search__filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: em(1);
+  font-size: em(40);
+  font-weight: 100;
+  color: $white;
+  text-transform: uppercase;
+  button {
+    margin: 0;
+    &:first-of-type {
+      margin-left: em(20);
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+    &:last-of-type {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+    
+  }
+ }

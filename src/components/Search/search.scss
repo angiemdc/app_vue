@@ -1,0 +1,39 @@
+@import 'src/assets/styles/main.scss';
+
+.search__content {
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  gap: em(10);
+  align-items: center;
+  max-width: 100%;
+  font-weight: 100;
+  font-size: em(40);
+  text-transform: uppercase;
+  @media only screen and (max-width: $bp-medium) {
+    font-size: em(30);
+    flex-direction: column;
+  }
+  label {
+    width: 50%;
+    & .search__input {
+      background-color: rgba(0,0,0, 0.4); 
+      border: none;
+      border-radius: em(2);
+      color: $white;
+      width: 100%;
+      padding: em(14);
+      color: inherit;
+      font-size: inherit;
+      font-weight:inherit;
+    }
+    @media only screen and (max-width: $bp-medium) {
+      width: 80%;
+    }
+  }
+  button {
+    @media only screen and (max-width: $bp-medium) {
+      align-self: flex-end;
+    }
+  }
+}

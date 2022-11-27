@@ -1,0 +1,27 @@
+@import 'src/assets/styles/main.scss';
+
+.customCard {
+  background-color: $black;
+  color: $white;
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-rows: 1fr 10vh;
+  gap: 1.5rem;
+ .card__img {
+    width: 100%;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+  }
+  .card__info {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    align-items: start;
+
+    p:first-of-type {
+      justify-self: end;  
+    }
+
+  }
+}
+

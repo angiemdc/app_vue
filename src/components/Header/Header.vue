@@ -10,7 +10,7 @@
 
 <script>
 import './header.scss';
-import Logo from './Logo.vue';
+import Logo from '../Logo/Logo.vue';
 
 export default {
   name: 'header-movie',

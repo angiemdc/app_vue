@@ -1,4 +1,4 @@
-import HeaderMovie from './Header.vue';
+import HeaderMovie from '../components/Header/Header.vue';
 
 // eslint-disable-next-line storybook/story-exports
 export default {

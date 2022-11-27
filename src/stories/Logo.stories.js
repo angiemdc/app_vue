@@ -1,4 +1,4 @@
-import LogoCompany from './Logo.vue';
+import LogoCompany from '../components/Logo/Logo.vue';
 
 export default {
   title: 'Example/Logo',
