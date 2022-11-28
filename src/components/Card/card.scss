@@ -5,7 +5,7 @@
   color: $white;
   display: grid;
   grid-template-columns: minmax(20rem, 1fr);
-  grid-template-rows: 1fr 10vh;
+  grid-template-rows: 1fr max-content;
   gap: 1.5rem;
  .card__img {
     width: 100%;
@@ -17,7 +17,7 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     align-items: start;
-    padding: 0 2rem;
+    padding: 0 2rem 1rem;
 
     p:first-of-type {
       justify-self: end; 
