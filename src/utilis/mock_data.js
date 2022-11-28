@@ -1,5 +1,5 @@
-import pmovie from '../assets/images/pmovie.svg';
-import bmovie from '../assets/images/Bitmap.jpg';
+import pmovie from '../assets/images/Pmap.jpg';
+import bmovie from '../assets/images/Bmap.jpg';
 import kmovie from '../assets/images/kmovie.svg';
 import amovie from '../assets/images/amovie.svg';
 import imovie from '../assets/images/imovie.svg';
