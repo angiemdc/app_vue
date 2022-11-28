@@ -1,0 +1,13 @@
+@import 'src/assets/styles/main.scss';
+
+.footer {
+  text-align: center;
+  background-color: $grey-dark;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: em(23);
+  @extend %base-text;
+}
+
+

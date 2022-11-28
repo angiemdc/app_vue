@@ -4,7 +4,7 @@
   background-color: $black;
   color: $white;
   display: grid;
-  grid-template-columns: max-content;
+  grid-template-columns: minmax(20rem, 1fr);
   grid-template-rows: 1fr 10vh;
   gap: 1.5rem;
  .card__img {
@@ -15,11 +15,12 @@
   .card__info {
     grid-column: 1/-1;
     display: grid;
-    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    grid-template-columns: repeat(2, 50%);
     align-items: start;
+    padding: 0 2rem;
 
     p:first-of-type {
-      justify-self: end;  
+      justify-self: end; 
     }
 
   }

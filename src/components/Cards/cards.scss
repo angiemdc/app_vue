@@ -1,0 +1,17 @@
+@import 'src/assets/styles/main.scss';
+
+.cards__component {
+  margin: 15rem 0;
+  display: grid;
+  grid-column: center-start/center-end;
+  & .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 7rem;
+  }
+  & .noItems {
+    color: $white;
+    justify-self: center;  
+  }
+}
+
