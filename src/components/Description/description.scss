@@ -7,7 +7,11 @@
   gap: 5rem;
   justify-content: center;
   // test 
-  width: 80%;
+   width: 80vw;
+   @include respond(tab-port) {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
   .card__img {
     width: 100%;
     grid-column: 1/2;
@@ -15,24 +19,47 @@
   .description {
     align-self: center;
     display: grid;
-    grid-template-columns: repeat(2, minmax(20rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, mmax-content);
     gap: 2rem;
     align-items: center;
     justify-content: center;
+    @include respond(tab-port) {
+      gap: 1rem;
+    }
     &__rating {
       grid-column: 2/-1;
       grid-row: 1/2;
+      span {
+        position: relative;
+        display: inline-block;
+        &::after {
+          content: "";
+          display: block;
+          height: 8.3rem;
+          width: 8.3rem;
+          border-radius: 50%;
+          border: 1px solid $white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include respond(tab-port) {
+            height: 6.3rem;
+            width: 6.3rem;
+          }
+        }
+      } 
     }
     &__type {
-      // grid-column: 1/-1;
       grid-row:2/3;
+      grid-column: 1/-1;
     }
     &__year,
     &__runtime {
       grid-row:3/4;
     }
-    &__text{
+    &__text {
       grid-row:4/5;
       grid-column: 1/-1;
     }

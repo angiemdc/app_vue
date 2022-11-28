@@ -2,11 +2,13 @@
     <section class="description__section">
       <img :src="image" alt="movieImg" class="card__img"/>
       <div class="description">
-        <h1>{{title}}</h1>
-        <span class="description__rating">{{rating}}</span>
-        <p class="description__type">{{movieType}}</p>
-        <p class="description__year text--red">{{year}}</p>
-        <p class="description__runtime text--red">{{runtime}}</p>
+        <h1 class="heading-1">{{title}}</h1>
+        <div class="description__rating">
+          <span class="heading-1">{{rating}}</span>
+        </div>
+        <h3 class="description__type heading-3">{{movieType}}</h3>
+        <h2 class="description__year heading-2 text--red">{{year}}</h2>
+        <h2 class="description__runtime heading-2 text--red">{{runtime}}</h2>
         <p class="description__text">{{description}}</p>
       </div>
     </section>

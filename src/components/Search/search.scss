@@ -10,7 +10,7 @@
   font-weight: 100;
   font-size: em(40);
   text-transform: uppercase;
-  @media only screen and (max-width: $bp-medium) {
+  @include respond(tab-port) { 
     font-size: em(30);
     flex-direction: column;
   }
@@ -27,12 +27,12 @@
       font-size: inherit;
       font-weight:inherit;
     }
-    @media only screen and (max-width: $bp-medium) {
+    @include respond(tab-port) { 
       width: 80%;
     }
   }
   button {
-    @media only screen and (max-width: $bp-medium) {
+    @include respond(tab-port) {
       align-self: flex-end;
     }
   }

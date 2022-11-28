@@ -24,15 +24,28 @@ body {
   @extend %heading;
   font-size: 4.5rem;
   line-height: 1;
+  @include respond(tab-port) {
+    font-size: 3.5rem;
+  }
 }
 .heading-2 {
   @extend %heading;
   font-size: 4rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1;
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
 }
 .heading-3 {
   @extend %heading;
   font-size: 1.6rem;
   text-transform: uppercase;
+  @include respond(tab-port) {
+    font-size: 1.4rem;
+  }
+}
+
+.text--red {
+  color: $red
 }

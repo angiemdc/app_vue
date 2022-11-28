@@ -55,7 +55,7 @@
   font-size: em(25);
   line-height: em(20);
   padding: em(25) em(80);
-  @media only screen and (max-width: $bp-medium) {
+  @include respond(tab-port) {
     font-size: em(20);
     padding: em(18) em(60);
   }

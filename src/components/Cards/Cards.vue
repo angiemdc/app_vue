@@ -5,7 +5,7 @@
           <CardComp :movieData="item"/>
         </li>
       </ul>
-      <div class="noItems" v-else>
+      <div class="noItems heading-2" v-else>
         <h1>No films found</h1>
       </div>
     </section>
