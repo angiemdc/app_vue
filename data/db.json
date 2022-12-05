@@ -1,0 +1,70 @@
+{
+  "moviesTypes": [
+    {
+      "title": "Pulp Fiction",
+      "movieType": "Action & Adventure",
+      "id": "pul1",
+      "image": "src/assets/images/Pmap.jpg",
+      "year": "1996",
+      "rating": "9.8",
+      "runtime": "1h 47min",
+      "description":
+        "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    },
+    {
+      "title": "Bohemian Rhapsody",
+      "movieType": "Drama, Biography, Music",
+      "id": "boh1",
+      "image": "src/assets/images/Bmap.jpg",
+      "year": "2003",
+      "rating": "7.8",
+      "runtime": "1h 47min",
+      "description":
+      "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    },
+    {
+      "title": "Kill Bill: Vol 2",
+      "movieType": "Oscar winning Movie",
+      "id": "kil1",
+      "image": "src/assets/images/kmovie.svg",
+      "year": "1994",
+      "rating": "8.8",
+      "runtime": "1h 47min",
+      "description":
+      "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    },
+    {
+      "title": "Avengers: War of Infinity",
+      "movieType": "Action & Adventure",
+      "id": "av1",
+      "image": "src/assets/images/amovie.svg",
+      "year": "2004",
+      "rating": "5.8",
+      "runtime": "1h 47min",
+      "description":
+      "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    },
+    {
+      "title": "Inception",
+      "movieType": "Action & Adventure",
+      "id": "in1",
+      "image": "src/assets/images/imovie.svg",
+      "year": "2003",
+      "rating": "6.8",
+      "runtime": "1h 47min",
+      "description":
+      "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    },
+    {
+      "title": "Reservoir dogs",
+      "movieType": "Oscar winning Movie",
+      "id": "re1",
+      "image": "src/assets/images/rmovie.svg",
+      "year": "1994",
+      "rating": "9.8",
+      "runtime": "1h 47min",
+      "description":
+      "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology."
+    }
+  ]
+}
