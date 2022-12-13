@@ -1,0 +1,11 @@
+.search {
+  grid-column: col-start 2/col-end 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section_content {
+  grid-row: 2/3;
+  min-height: 80vh;
+}
