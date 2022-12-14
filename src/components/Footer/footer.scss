@@ -5,9 +5,11 @@
   background-color: $grey-dark;
   min-width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: em(23);
-  @extend %base-text;
+  grid-row: 4/-1;
+  grid-column: center-start/center-end;
 }
 
 

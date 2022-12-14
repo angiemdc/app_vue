@@ -1,6 +1,6 @@
 <template>
   <section class='search__filters'>
-      <h5>{{serchTitle}}</h5>
+      <h5 class="heading-5">{{serchTitle}}</h5>
       <my-button
         :primary="isActive"
         size="medium"

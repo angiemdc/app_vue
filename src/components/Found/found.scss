@@ -1,0 +1,18 @@
+
+.found__container {
+  grid-column: center-start/center-end;
+  grid-row: 2/3;
+  display: flex;
+  justify-content:space-between;
+  align-content: center;
+  height: max-content;
+  background-color: $black;
+  padding: 2rem 10rem;
+  color: $white;
+  background-color: $grey-light;
+  @include respond(tab-port) { 
+    padding: 1rem;
+  }
+
+}
+

@@ -4,6 +4,7 @@ import kmovie from '../assets/images/kmovie.svg';
 import amovie from '../assets/images/amovie.svg';
 import imovie from '../assets/images/imovie.svg';
 import rmovie from '../assets/images/rmovie.svg';
+import logoM from '../assets/images/netflixroulette.svg';
 
 const movieData = [
   {
@@ -73,6 +74,6 @@ const movieData = [
         "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific. The film is based on stories from Polynesian mythology.",
   },
 ];
-
+export const logoMovie = logoM;
 export const testCart = movieData[0];
 export default movieData;

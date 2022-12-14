@@ -1,11 +1,21 @@
+@import 'src/assets/styles/main.scss';
 .search {
-  grid-column: col-start 2/col-end 6;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-left: 6rem;
+  @include respond(tab-port) { 
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 .section_content {
-  grid-row: 2/3;
+  grid-column: center-start/center-end;
+  grid-row: 3/4;
   min-height: 80vh;
+  background-color: $black;
+  max-width: 100%
 }
