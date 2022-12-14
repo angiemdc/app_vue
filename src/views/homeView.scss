@@ -17,5 +17,24 @@
   grid-row: 3/4;
   min-height: 80vh;
   background-color: $black;
-  max-width: 100%
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.details {
+  max-width: 50vw;
+}
+.btn__link {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+  }
+  img {
+    max-width: 100%;
+  }
 }

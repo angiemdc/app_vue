@@ -1,7 +1,7 @@
 <template>
-    <div className='logoImg'>
- <img :src="logo" alt="movieImg"  />
-    </div>
+  <div className='logoImg'>
+    <img :src="logo" alt="movieImg"  />
+  </div>
 </template>
 
 <script>

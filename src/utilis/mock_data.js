@@ -5,6 +5,7 @@ import amovie from '../assets/images/amovie.svg';
 import imovie from '../assets/images/imovie.svg';
 import rmovie from '../assets/images/rmovie.svg';
 import logoM from '../assets/images/netflixroulette.svg';
+import searchI from '../assets/images/searchButton.svg';
 
 const movieData = [
   {
@@ -75,5 +76,6 @@ const movieData = [
   },
 ];
 export const logoMovie = logoM;
+export const searchIcon = searchI;
 export const testCart = movieData[0];
 export default movieData;
