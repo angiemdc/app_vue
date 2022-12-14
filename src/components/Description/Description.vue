@@ -29,7 +29,9 @@ export default {
     },
   },
   setup(props) {
+    console.log(props);
     const data = { ...props.movieData };
+    console.log(data);
     const {
       title, movieType, image, year, rating, id, description, runtime,
     } = data;

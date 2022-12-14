@@ -12,11 +12,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/details',
     name: 'details',
     component: DetailsView,
+    props: { data: true },
   },
   {
     path: '/:pathMatch(.*)',
     name: 'notFound',
     component: HomeView,
+    props: true,
   },
 ];
 
