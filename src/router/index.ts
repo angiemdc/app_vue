@@ -9,10 +9,10 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: '/details',
-    name: 'details',
+    path: '/details/:id',
+    name: 'Details',
     component: DetailsView,
-    props: { data: true },
+    props: true,
   },
   {
     path: '/:pathMatch(.*)',

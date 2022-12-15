@@ -2,7 +2,7 @@
     <div>
       <div class='customCard'>
         <div>
-          <router-link :to="{name:'details', params:{movieData: data}}">
+          <router-link :to="{name:'Details', params:{id:id}}">
           <img :src="image" alt="movieImg" class="card__img" />
           </router-link>
         </div>
@@ -35,7 +35,7 @@ export default {
       title, movieType, image, year, id,
     } = data;
     return {
-      title, movieType, image, year, id, data,
+      title, movieType, image, year, id,
     };
   },
 };
