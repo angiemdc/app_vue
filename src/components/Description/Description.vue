@@ -16,6 +16,8 @@
 
 <script>
 import './description.scss';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import getMovieDetails from '@/composables/getMovieDetails';
 // import { testCart } from '../../utilis/mock_data';
 
@@ -23,8 +25,21 @@ export default {
   name: 'description-comp',
   props: ['movieId'],
   setup(props) {
-    console.log(props);
+    const idMovie = ref(props.movieId);
+    const route = useRoute();
     const { movieDetails, getMovie } = getMovieDetails();
+    watch(
+      () => route.params,
+      (newValue, oldValue) => {
+        if (newValue !== oldValue) idMovie.value = newValue.id;
+      },
+    );
+    watch(
+      () => idMovie.value,
+      (newValue, oldValue) => {
+        if (oldValue !== newValue) getMovie(newValue);
+      },
+    );
     getMovie(props.movieId);
     return {
       movieDetails,
