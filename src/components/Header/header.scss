@@ -1,17 +1,25 @@
-@import 'src/assets/styles/main.scss';
 
 .header {
   grid-column: center-start/center-end;
   grid-row: 1/2;
   display: flex;
   flex-direction: column;
-  height: $header-height;
+  height: max-content;
   background-color: $black;
+  padding: 3rem;
+  @include respond(tab-port) { 
+    padding: 1rem;
+  }
   &-withImage {
     background-image: url('../../assets/images/Bitmap.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+  }
+  .navSection {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
   }
 }
 

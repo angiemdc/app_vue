@@ -14,13 +14,20 @@ body {
   box-sizing: border-box;
   padding: 3rem;
   background-color: $grey-light;
+  @include respond(tab-port) { 
+    padding: 0.5rem;
+  }
 }
 
 .container {
   display: grid;
-  grid-template-rows: 20vh min-content 5vh;
+  grid-template-rows: max-content minmax(4rem, 1fr) min-content 5vh;
   grid-template-columns:
-    [left-start]minmax(6rem, 1fr)
+    [left-start]minmax(1rem, 1fr)
     [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-    [center-end]minmax(6rem, 1fr) [full-end];
+    [center-end]minmax(1rem, 1fr) [full-end];
+  @include respond(tab-port) { 
+    grid-template-columns: [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end]
+  }
 }

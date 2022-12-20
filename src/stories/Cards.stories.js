@@ -25,7 +25,8 @@ const Template = (args) => ({
 export const NoItemFound = Template.bind({});
 
 export const WithData = Template.bind({});
-console.log(movieData);
 WithData.args = {
   data: movieData,
+
+ 
 };

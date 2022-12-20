@@ -2,7 +2,9 @@
     <div>
       <div class='customCard'>
         <div>
+          <router-link :to="{name:'Details', params:{id:id}}">
           <img :src="image" alt="movieImg" class="card__img" />
+          </router-link>
         </div>
         <div class="card__info">
           <h4 class="card__text">{{title}}</h4>

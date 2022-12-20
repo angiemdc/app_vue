@@ -9,12 +9,19 @@
   font-weight: 100;
   color: $white;
   text-transform: uppercase;
+  @include respond(tab-port) { 
+    font-size: em(20);
+    justify-content: flex-start;
+  }
   button {
     margin: 0;
     &:first-of-type {
       margin-left: em(20);
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
+      @include respond(tab-port) { 
+        margin-left: em(10);
+      }
     }
     &:last-of-type {
       border-bottom-left-radius: 0;

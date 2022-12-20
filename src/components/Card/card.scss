@@ -4,7 +4,7 @@
   background-color: $black;
   color: $white;
   display: grid;
-  grid-template-columns: minmax(20rem, 1fr);
+  grid-template-columns: minmax(0.75rem, 1fr);
   grid-template-rows: 1fr max-content;
   gap: 1.5rem;
  .card__img {
