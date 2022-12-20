@@ -8,8 +8,8 @@
         </div>
         <div class="card__info">
           <h4 class="card__text">{{title}}</h4>
-          <p class="card__text">{{year}}</p>
-          <p class="card__text">{{movieType}}</p>
+          <p class="card__text">{{$filters.yearFormat(year)}}</p>
+          <p class="card__text">{{$filters.movieTypesFormat(movieType)}}</p>
         </div>
       </div>
     </div>

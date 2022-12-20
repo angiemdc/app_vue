@@ -6,8 +6,12 @@
         <div class="description__rating">
           <span class="heading-1">{{movieDetails.rating}}</span>
         </div>
-        <h3 class="description__type heading-3">{{movieDetails.movieType}}</h3>
-        <h2 class="description__year heading-2 text--red">{{movieDetails.year}}</h2>
+        <h3 class="description__type heading-3">
+          {{$filters.movieTypesFormat((movieDetails.movieType))}}
+        </h3>
+        <h2 class="description__year heading-2 text--red">
+         {{$filters.yearFormat(movieDetails.year)}}
+        </h2>
         <h2 class="description__runtime heading-2 text--red">{{movieDetails.runtime}}</h2>
         <p class="description__text">{{movieDetails.description}}</p>
       </div>

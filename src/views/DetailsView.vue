@@ -33,10 +33,8 @@ export default defineComponent({
   props: ['id'],
   setup(props) {
     const search = ref(searchIcon);
-    const { moviesData: data, error, load } = getMoviesData();
-    load();
+    const { moviesData: data, error } = getMoviesData();
     const { idMovie } = { ...props.id };
-    console.log(idMovie, props.id);
     return {
       search, data, error, idMovie,
     };

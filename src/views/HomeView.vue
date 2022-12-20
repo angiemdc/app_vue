@@ -4,7 +4,7 @@
       <div class="search">
         <h1 class='heading-1'>Find your Movie</h1>
         <SearchInput/>
-        <SearchFilter/>
+        <SearchFilter />
       </div>
     </template>
   </header-movie>
@@ -24,6 +24,7 @@ import SearchInput from '@/components/Search/Search.vue';
 import SearchFilter from '@/components/SearchFilter/SearchFilter.vue';
 import CardsLayout from '@/components/Cards/Cards.vue';
 import getMoviesData from '@/composables/getMoviesData';
+import sortByValue from '@/composables/sortByValue';
 import './homeView.scss';
 
 export default defineComponent({
@@ -33,8 +34,9 @@ export default defineComponent({
     HeaderMovie, FoundMovie, SearchInput, SearchFilter, CardsLayout,
   },
   setup() {
-    const { moviesData, error, load } = getMoviesData();
-    load();
+    const { moviesData, error } = getMoviesData();
+    const {sortedData, sortBy} = sortByValue();
+    console.log(sortedData);
     return { moviesData, error };
   },
 });
