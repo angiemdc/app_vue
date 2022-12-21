@@ -2,17 +2,17 @@ import { ref } from 'vue';
 
 import { BASE_URL, limit } from './getMoviesData';
 
-const sortByValue = () => {
-  const sortedData = ref([]);
+const getMovieTypeValue = () => {
+  const moviesData = ref([]);
   const error = ref('');
   const loadingSort = ref(true);
 
-  const sortBy = async (valueToSort) => {
+  const getMovieType = async (movieType) => {
     try {
-      const response = await fetch(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
+      const response = await fetch(`${BASE_URL}?movieType=${movieType}&_limit=${limit}`);
       const data = await response.json();
       if (!data.length) throw Error('no data available');
-      sortedData.value = data;
+      moviesData.value = data;
       loadingSort.value = false;
     } catch (err) {
       error.value = err.message;
@@ -20,9 +20,10 @@ const sortByValue = () => {
       loadingSort.value = false;
     }
   };
+
   return {
-    sortedData, error, loadingSort, sortBy,
+    moviesData, error, loadingSort, getMovieType,
   };
 };
 
-export default sortByValue;
+export default getMovieTypeValue;

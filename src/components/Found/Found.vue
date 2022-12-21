@@ -1,12 +1,13 @@
 <template>
  <section class='found__container'>
-   <p>{{numberMovie}} movie found</p>
-   <SearchFilter
-    :serchTitle="title"
-    :primaryBtn="primary"
-    :secondaryBtn="secondary"
-    @handleSerchBy="onClick"
-  />
+   <p v-if="numberMovie">{{numberMovie}} movie found</p>
+   <p v-else-if="movieGenre">films by {{$filters.movieTypesFormat(movieGenre)}} genre</p>
+   <SearchFilter v-if="numberMovie"
+      :serchTitle="title"
+      :primaryBtn="primary"
+      :secondaryBtn="secondary"
+      @handleSerchBy="onClick"
+    />
   </section>
 </template>
 
@@ -24,10 +25,17 @@ export default {
       type: Number,
       default: 0,
     },
+    movieGenre: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: 'sort by',
+    },
   },
   data() {
     return {
-      title: 'sort by',
       primary: 'Realease date',
       secondary: 'rating',
     };
@@ -36,7 +44,6 @@ export default {
   setup(props, { emit }) {
     return {
       onClick(value) {
-        console.log(value);
         emit('handleSerchBy', value === 'Realease date' ? 'year' : value);
       },
     };

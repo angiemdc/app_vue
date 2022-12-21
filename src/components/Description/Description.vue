@@ -20,14 +20,15 @@
 
 <script>
 import './description.scss';
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import getMovieDetails from '@/composables/getMovieDetails';
 // import { testCart } from '../../utilis/mock_data';
 
 export default {
   name: 'description-comp',
-  props: ['movieId'],
+  props: ['movieId', 'genre', 'getGenreValue'],
+  emit: ['getGenreValue'],
   setup(props) {
     const idMovie = ref(props.movieId);
     const route = useRoute();
@@ -44,7 +45,17 @@ export default {
         if (oldValue !== newValue) getMovie(newValue);
       },
     );
-    getMovie(props.movieId);
+    watch(
+      () => movieDetails.value,
+      (newValue, oldValue) => {
+        if (oldValue !== newValue)props.getGenreValue(movieDetails);
+      },
+    );
+
+    onMounted(() => {
+      getMovie(props.movieId);
+    });
+
     return {
       movieDetails,
     };

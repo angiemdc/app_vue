@@ -11,7 +11,6 @@ const getMovieDetails = () => {
       if (!data.length) throw Error('no data available');
       const [muvie] = data;
       movieDetails.value = muvie;
-      console.log(data);
     } catch (err) {
       error.value = err.message;
       console.error(err);

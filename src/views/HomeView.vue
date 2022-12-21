@@ -39,7 +39,6 @@ export default defineComponent({
     const { sortedData, sortBy } = sortByValue();
     const handleCLick = (type) => {
       sortBy(type);
-      console.log(sortedData);
     };
     watch(
       () => moviesData.value,
@@ -50,7 +49,6 @@ export default defineComponent({
     watch(
       () => sortedData.value,
       (newValue) => {
-        console.log(newValue, moviesData);
         moviesData.value = newValue;
         movieLength.value = newValue.length;
       },

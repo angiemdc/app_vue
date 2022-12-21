@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class='customCard'>
+      <div class='customCard' v-card-size="{singleCard}">
         <div>
           <router-link :to="{name:'Details', params:{id:id}}">
           <img :src="image" alt="movieImg" class="card__img" />
@@ -27,6 +27,9 @@ export default {
       default() {
         return { ...testCart };
       },
+    },
+    singleCard: {
+      type: Boolean,
     },
   },
   setup(props) {
