@@ -8,7 +8,7 @@
       </div>
     </template>
   </header-movie>
-  <FoundMovie :numberMovie="moviesData.length"/>
+  <FoundMovie :numberMovie="moviesData.length"  @handleSerchBy="handleCLick"/>
   <section class="section_content">
     <div v-if="error">{{error}}</div>
     <cards-layout :data="moviesData"/>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, watch, ref } from 'vue';
 
 import HeaderMovie from '@/components/Header/Header.vue';
 import FoundMovie from '@/components/Found/Found.vue';
@@ -34,10 +34,28 @@ export default defineComponent({
     HeaderMovie, FoundMovie, SearchInput, SearchFilter, CardsLayout,
   },
   setup() {
+    const movieLength = ref(0);
     const { moviesData, error } = getMoviesData();
-    const {sortedData, sortBy} = sortByValue();
-    console.log(sortedData);
-    return { moviesData, error };
+    const { sortedData, sortBy } = sortByValue();
+    const handleCLick = (type) => {
+      sortBy(type);
+      console.log(sortedData);
+    };
+    watch(
+      () => moviesData.value,
+      (newValue) => {
+        movieLength.value = newValue.length;
+      },
+    );
+    watch(
+      () => sortedData.value,
+      (newValue) => {
+        console.log(newValue, moviesData);
+        moviesData.value = newValue;
+        movieLength.value = newValue.length;
+      },
+    );
+    return { moviesData, error, handleCLick };
   },
 });
 </script>

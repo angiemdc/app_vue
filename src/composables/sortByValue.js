@@ -22,6 +22,8 @@ const sortByValue = () => {
     }
   };
 
+  console.log(sortedData);
+
   return {
     sortedData, error, loadingSort, sortBy,
   };

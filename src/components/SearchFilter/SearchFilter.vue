@@ -46,7 +46,6 @@ export default {
   methods: {
     handleClick(btn) {
       this.isActive = !this.isActive;
-      console.log(this.isActive, this, this[btn]);
       this.$emit('handleSerchBy', this[btn]);
     },
   },

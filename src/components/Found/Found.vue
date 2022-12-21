@@ -1,7 +1,12 @@
 <template>
  <section class='found__container'>
    <p>{{numberMovie}} movie found</p>
-   <SearchFilter :serchTitle="title" :primaryBtn="primary" :secondaryBtn="secondary"/>
+   <SearchFilter
+    :serchTitle="title"
+    :primaryBtn="primary"
+    :secondaryBtn="secondary"
+    @handleSerchBy="onClick"
+  />
   </section>
 </template>
 
@@ -27,6 +32,14 @@ export default {
       secondary: 'rating',
     };
   },
-  emits: [],
+  emits: ['handleSerchBy'],
+  setup(props, { emit }) {
+    return {
+      onClick(value) {
+        console.log(value);
+        emit('handleSerchBy', value === 'Realease date' ? 'year' : value);
+      },
+    };
+  },
 };
 </script>
