@@ -3,7 +3,13 @@
       <div class='customCard' v-card-size="{singleCard}">
         <div>
           <router-link :to="{name:'Details', params:{id:id}}">
-            <v-lazy-image :src="image" alt="movieImg" class="card__img" />
+            <v-lazy-image
+              :src="image"
+              :src-placeholder="imgPlaceholder"
+              alt="movieImg"
+              class="card__img"
+              @error="handleError"
+              />
           </router-link>
         </div>
         <div class="card__info">
@@ -16,6 +22,9 @@
 </template>
 
 <script>
+import {
+  reactive, ref,
+} from 'vue';
 import './card.scss';
 import VLazyImage from 'v-lazy-image';
 import { testCart } from '../../utilis/mock_data';
@@ -35,15 +44,30 @@ export default {
     singleCard: {
       type: Boolean,
     },
+    imgPlaceholder: testCart.image,
   },
   setup(props) {
-    const data = { ...props.movieData };
+    const data = reactive(props.movieData);
     const {
-      title, movieType, image, year, id,
+      title, movieType, year, id,
     } = data;
+    const image = ref(data.image);
+    const handleError = () => {
+      image.value = props.imgPlaceholder;
+    };
     return {
-      title, movieType, image, year, id,
+      title, movieType, image, year, id, handleError,
     };
   },
 };
 </script>
+
+<style scoped>
+  .v-lazy-image {
+    filter: blur(10px);
+    transition: filter 0.7s;
+  }
+  .v-lazy-image-loaded {
+    filter: blur(0);
+  }
+</style>

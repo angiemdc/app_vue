@@ -1,5 +1,5 @@
 <template>
-    <section class="description__section">
+    <section class="description__section" v-if="movieDetails.title">
       <v-lazy-image :src="movieDetails.image" alt="movieImg" class="card__img" />
       <div class="description">
         <h1 class="heading-1">{{movieDetails.title}}</h1>
@@ -15,6 +15,9 @@
         <h2 class="description__runtime heading-2 text--red">{{movieDetails.runtime}}</h2>
         <p class="description__text">{{movieDetails.description}}</p>
       </div>
+    </section>
+    <section v-if="!movieDetails.title">
+      <h1 class="heading-1">Loading ...</h1>
     </section>
 </template>
 
