@@ -1,6 +1,6 @@
 <template>
     <section class="description__section">
-      <img :src="movieDetails.image" alt="movieImg" class="card__img"/>
+      <v-lazy-image :src="movieDetails.image" alt="movieImg" class="card__img" />
       <div class="description">
         <h1 class="heading-1">{{movieDetails.title}}</h1>
         <div class="description__rating">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import VLazyImage from 'v-lazy-image';
 import './description.scss';
 import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -27,6 +28,9 @@ import getMovieDetails from '@/composables/getMovieDetails';
 
 export default {
   name: 'description-comp',
+  components: {
+    VLazyImage,
+  },
   props: ['movieId', 'genre', 'getGenreValue'],
   emit: ['getGenreValue'],
   setup(props) {

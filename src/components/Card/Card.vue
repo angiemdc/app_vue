@@ -3,7 +3,7 @@
       <div class='customCard' v-card-size="{singleCard}">
         <div>
           <router-link :to="{name:'Details', params:{id:id}}">
-          <img :src="image" alt="movieImg" class="card__img" />
+            <v-lazy-image :src="image" alt="movieImg" class="card__img" />
           </router-link>
         </div>
         <div class="card__info">
@@ -17,10 +17,14 @@
 
 <script>
 import './card.scss';
+import VLazyImage from 'v-lazy-image';
 import { testCart } from '../../utilis/mock_data';
 
 export default {
   name: 'card-comp',
+  components: {
+    VLazyImage,
+  },
   props: {
     movieData: {
       type: Object,
