@@ -29,8 +29,5 @@ export default {
   },
   components: { MyButton },
   emits: ['handleSubmit', 'handleKeyDown'],
-  created() {
-    console.log(this.placeholder);
-  },
 };
 </script>

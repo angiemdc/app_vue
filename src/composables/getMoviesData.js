@@ -1,22 +1,29 @@
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
-import movieData from '../utilis/mock_data';
-import { delayPromise } from '../utilis/utilis';
+export const BASE_URL = ' http://localhost:3001/moviesData';
+export const limit = 8;
 
 const getMoviesData = () => {
   const moviesData = ref([]);
   const error = ref('');
+  const loading = ref(true);
+
   const load = async () => {
     try {
-      const data = await delayPromise(() => movieData, 1000);
+      const response = await fetch(`${BASE_URL}?_limit=${limit}`);
+      const data = await response.json();
       if (!data.length) throw Error('no data available');
       moviesData.value = data;
+      loading.value = false;
     } catch (err) {
       error.value = err.message;
       console.error(err);
+      loading.value = false;
     }
   };
-  return { moviesData, error, load };
+  onMounted(() => load());
+
+  return { moviesData, error, loading };
 };
 
 export default getMoviesData;

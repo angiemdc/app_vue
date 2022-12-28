@@ -1,18 +1,16 @@
 import { ref } from 'vue';
-
-import movieData from '../utilis/mock_data';
-import { delayPromise } from '../utilis/utilis';
+import { BASE_URL } from './getMoviesData';
 
 const getMovieDetails = () => {
   const movieDetails = ref([]);
   const error = ref('');
   const getMovie = async (idRef) => {
     try {
-      const data = await delayPromise(() => movieData, 1000);
+      const response = await fetch(`${BASE_URL}?id=${idRef}`);
+      const data = await response.json();
       if (!data.length) throw Error('no data available');
-      const filteredMovie = data.filter(({ id }) => id === idRef);
-      const [movie] = filteredMovie;
-      movieDetails.value = movie;
+      const [muvie] = data;
+      movieDetails.value = muvie;
     } catch (err) {
       error.value = err.message;
       console.error(err);

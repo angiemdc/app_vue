@@ -2,7 +2,7 @@
     <section class="cards__component">
       <ul class="cards"  v-if="data?.length > 0">
         <li  v-for= "item in data" :key="item.id">
-          <CardComp :movieData="item"/>
+          <CardComp :movieData="item" :singleCard="data?.length === 1"/>
         </li>
       </ul>
       <div class="noItems heading-2" v-else>
