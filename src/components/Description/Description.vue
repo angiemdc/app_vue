@@ -64,9 +64,9 @@ export default {
     );
 
     onMounted(() => {
-      const selectedMovie = getters.selectedMovie(Number(props.movieId));
+      const selectedMovie = getters['moviesModule/selectedMovie'](Number(props.movieId));
       if (!isEmpty(selectedMovie)) {
-        movieDetails.value = getters.selectedMovie(Number(props.movieId));
+        movieDetails.value = selectedMovie;
       } else {
         getMovie(props.movieId);
       }

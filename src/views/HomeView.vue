@@ -36,17 +36,16 @@ export default defineComponent({
   },
   setup() {
     const movieLength = ref(0);
-    const { state, getters, dispatch } = useStore();
+    const { state: { moviesModule }, getters, dispatch } = useStore();
     const { sortedData, sortBy } = sortByValue();
-    const moviesData = computed(() => getters.getMovies);
-    const error = computed(() => state.error);
-
+    const moviesData = computed(() => getters['moviesModule/getMovies']);
+    const error = computed(() => moviesModule.error);
     const handleCLick = (type) => {
       sortBy(type);
     };
 
     onMounted(() => {
-      dispatch('loadMovies');
+      dispatch('moviesModule/loadMovies');
       movieLength.value = moviesData.value.length;
     });
 
