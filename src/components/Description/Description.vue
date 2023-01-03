@@ -22,11 +22,14 @@
 </template>
 
 <script>
-import VLazyImage from 'v-lazy-image';
-import './description.scss';
 import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+import VLazyImage from 'v-lazy-image';
+import { isEmpty } from 'lodash';
+
 import getMovieDetails from '@/composables/getMovieDetails';
+import './description.scss';
 // import { testCart } from '../../utilis/mock_data';
 
 export default {
@@ -40,6 +43,7 @@ export default {
     const idMovie = ref(props.movieId);
     const route = useRoute();
     const { movieDetails, getMovie } = getMovieDetails();
+    const { getters } = useStore();
     watch(
       () => route.params,
       (newValue, oldValue) => {
@@ -60,7 +64,12 @@ export default {
     );
 
     onMounted(() => {
-      getMovie(props.movieId);
+      const selectedMovie = getters.selectedMovie(Number(props.movieId));
+      if (!isEmpty(selectedMovie)) {
+        movieDetails.value = getters.selectedMovie(Number(props.movieId));
+      } else {
+        getMovie(props.movieId);
+      }
     });
 
     return {

@@ -9,7 +9,6 @@ export default {
     app.component('footer-movie', FooterMovie);
     app.component('search-filter', SearchFilter);
     app.directive('card-size', (el, binding, vnode) => {
-      console.log(binding.value, vnode);
       const { singleCard } = binding.value;
       if (singleCard) {
         const width = '50%';
