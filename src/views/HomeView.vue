@@ -16,14 +16,15 @@
 </template>
 
 <script>
-import { defineComponent, watch, ref } from 'vue';
-
+import {
+  defineComponent, watch, ref, onMounted, computed,
+} from 'vue';
+import { useStore } from 'vuex';
 import HeaderMovie from '@/components/Header/Header.vue';
 import FoundMovie from '@/components/Found/Found.vue';
 import SearchInput from '@/components/Search/Search.vue';
 import SearchFilter from '@/components/SearchFilter/SearchFilter.vue';
 import CardsLayout from '@/components/Cards/Cards.vue';
-import getMoviesData from '@/composables/getMoviesData';
 import sortByValue from '@/composables/sortByValue';
 import './homeView.scss';
 
@@ -35,17 +36,19 @@ export default defineComponent({
   },
   setup() {
     const movieLength = ref(0);
-    const { moviesData, error } = getMoviesData();
+    const { state: { moviesModule }, getters, dispatch } = useStore();
     const { sortedData, sortBy } = sortByValue();
+    const moviesData = computed(() => getters['moviesModule/getMovies']);
+    const error = computed(() => moviesModule.error);
     const handleCLick = (type) => {
       sortBy(type);
     };
-    watch(
-      () => moviesData.value,
-      (newValue) => {
-        movieLength.value = newValue.length;
-      },
-    );
+
+    onMounted(() => {
+      dispatch('moviesModule/loadMovies');
+      movieLength.value = moviesData.value.length;
+    });
+
     watch(
       () => sortedData.value,
       (newValue) => {
@@ -53,7 +56,7 @@ export default defineComponent({
         movieLength.value = newValue.length;
       },
     );
-    return { moviesData, error, handleCLick };
+    return { moviesData, handleCLick, error };
   },
 });
 </script>
