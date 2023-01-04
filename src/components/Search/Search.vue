@@ -1,33 +1,36 @@
 <template>
-  <section class='search__content'>
+  <form class='search__content' @submit.prevent="onSubmit">
     <slot name="title"></slot >
     <label type="search" for='searchItem'>
       <input
         name='searchItem'
-        type='search'
+        type='text'
         class='search__input'
         v-model="searchItem"
         :placeholder="placeholder"
-        @keydown="$emit('handleKeyDown')"
       />
     </label>
-    <my-button primary size="large" @click="$emit('handleSubmit')" label="Search"  />
-  </section>
+    <my-button primary size="large" type='submit' label="Search"  />
+  </form>
 </template>
 
 <script>
+import { ref } from 'vue';
 import './search.scss';
 import MyButton from '../Button/Button.vue';
 
 export default {
   name: 'search-input',
   props: ['placeholder'],
-  data() {
-    return {
-      searchItem: '',
-    };
-  },
   components: { MyButton },
   emits: ['handleSubmit', 'handleKeyDown'],
+  setup(props, { emit }) {
+    const searchItem = ref('');
+    const onSubmit = () => {
+      console.log(searchItem.value);
+      emit('handleSubmit', searchItem.value);
+    };
+    return { searchItem, onSubmit };
+  },
 };
 </script>
