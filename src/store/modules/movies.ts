@@ -51,9 +51,25 @@ export default {
         }
       }
     },
-    async filterByTypes({ commit }:{commit:Commit}, movieType:string) {
+    async filterByTypes(
+      { commit }:{commit:Commit},
+      { typicode, typeToSearch = 'title' }:{[key: string]:string},
+    ) {
       try {
-        const response = await fetch(`${BASE_URL}?movieType=${movieType}&_limit=${limit}`);
+        const response = await fetch(`${BASE_URL}?${typeToSearch}_like=${typicode}&_limit=${limit}`);
+        const data = await response.json();
+        if (!data.length) throw Error('no data available');
+        if (data) commit('SET_MOVIES', data);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          const message = error.message as unknown as string;
+          commit('SET_ERROR', message);
+        }
+      }
+    },
+    async sortByValue({ commit }:{commit:Commit}, valueToSort:string) {
+      try {
+        const response = await fetch(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
         const data = await response.json();
         if (!data.length) throw Error('no data available');
         if (data) commit('SET_MOVIES', data);
