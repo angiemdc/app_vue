@@ -25,3 +25,6 @@ export const getMovieByTime = (data, filter) => {
     }
   });
 };
+
+export const movieTypesFormat = (movieTypes) => (movieTypes?.join(', ')?.replace(/,(?=[^,]+$)/, ' &'));
+export const yearFormat = (date) => new Date(date).getFullYear();

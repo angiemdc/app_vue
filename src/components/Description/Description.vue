@@ -1,5 +1,5 @@
 <template>
-    <section class="description__section" v-if="movieDetails.title">
+    <section class="description__section" v-if="movieDetails?.title">
       <v-lazy-image :src="movieDetails.image" alt="movieImg" class="card__img" />
       <div class="description">
         <h1 class="heading-1">{{movieDetails.title}}</h1>
@@ -16,7 +16,7 @@
         <p class="description__text">{{movieDetails.description}}</p>
       </div>
     </section>
-    <section v-if="!movieDetails.title">
+    <section v-if="!movieDetails?.title">
       <h1 class="heading-1">Loading ...</h1>
     </section>
 </template>
@@ -40,7 +40,7 @@ export default {
   props: ['movieId', 'genre', 'getGenreValue'],
   emit: ['getGenreValue'],
   setup(props) {
-    const idMovie = ref(props.movieId);
+    const idMovie = ref('');
     const route = useRoute();
     const { movieDetails, getMovie } = getMovieDetails();
     const { getters } = useStore();
@@ -50,6 +50,7 @@ export default {
         if (newValue !== oldValue) idMovie.value = newValue.id;
       },
     );
+    console.log(movieDetails);
     watch(
       () => idMovie.value,
       (newValue, oldValue) => {

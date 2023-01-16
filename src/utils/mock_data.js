@@ -10,7 +10,7 @@ import searchI from '../assets/images/searchButton.svg';
 const movieData = [
   {
     title: 'Pulp Fiction',
-    movieType: 'Action & Adventure',
+    movieType: ['Action & Adventure'],
     id: 'pul1',
     image: pmovie,
     year: '1996',

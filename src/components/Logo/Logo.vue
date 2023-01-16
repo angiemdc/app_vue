@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { logoMovie } from '../../utilis/mock_data';
+import { logoMovie } from '../../utils/mock_data';
 
 export default {
   name: 'logo-company',

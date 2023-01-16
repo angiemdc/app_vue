@@ -27,7 +27,7 @@ import FoundMovie from '@/components/Found/Found.vue';
 import DescriptionComp from '@/components/Description/Description.vue';
 import CardsLayout from '@/components/Cards/Cards.vue';
 import getMovieTypeValue from '@/composables/filterBymovieType';
-import { searchIcon } from '../utilis/mock_data';
+import { searchIcon } from '../utils/mock_data';
 import './homeView.scss';
 
 export default defineComponent({
