@@ -1,27 +1,26 @@
-import { ref } from 'vue';
-
+import { ref, useFetch } from 'vue';
+import axios from 'axios';
 import { BASE_URL, limit } from './getMoviesData';
 
 const sortByValue = () => {
   const sortedData = ref([]);
-  const error = ref('');
+  const errormessage = ref('');
   const loadingSort = ref(true);
 
   const sortBy = async (valueToSort) => {
     try {
-      const response = await fetch(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
-      const data = await response.json();
-      if (!data.length) throw Error('no data available');
+      const { isFetching, error, data } = await axios(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
+      if (!data.length || error) throw Error('no data available');
       sortedData.value = data;
-      loadingSort.value = false;
+      loadingSort.value = isFetching;
     } catch (err) {
-      error.value = err.message;
+      errormessage.value = err.message;
       console.error(err);
       loadingSort.value = false;
     }
   };
   return {
-    sortedData, error, loadingSort, sortBy,
+    sortedData, errormessage, loadingSort, sortBy,
   };
 };
 

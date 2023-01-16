@@ -1,4 +1,5 @@
 import { Commit } from 'vuex';
+import axios from 'axios';
 
 type Movie ={ [key: string]: number| string | string[]}
 
@@ -40,8 +41,9 @@ export default {
   actions: {
     async loadMovies({ commit }: {commit:Commit}) {
       try {
-        const response = await fetch(`${BASE_URL}?_limit=${limit}`);
-        const data = await response.json();
+        const response = await axios.get(`${BASE_URL}?_limit=${limit}`);
+        const data = await response.data;
+        console.log(data);
         if (!data.length) throw Error('no data available');
         if (data) commit('SET_MOVIES', data);
       } catch (error: unknown) {
@@ -56,8 +58,8 @@ export default {
       { typicode, typeToSearch = 'title' }:{[key: string]:string},
     ) {
       try {
-        const response = await fetch(`${BASE_URL}?${typeToSearch}_like=${typicode}&_limit=${limit}`);
-        const data = await response.json();
+        const response = await axios.get(`${BASE_URL}?${typeToSearch}_like=${typicode}&_limit=${limit}`);
+        const data = await response.data;
         if (!data.length) throw Error('no data available');
         if (data) commit('SET_MOVIES', data);
       } catch (error: unknown) {
@@ -69,8 +71,8 @@ export default {
     },
     async sortByValue({ commit }:{commit:Commit}, valueToSort:string) {
       try {
-        const response = await fetch(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
-        const data = await response.json();
+        const response = await axios.get(`${BASE_URL}?_sort=${valueToSort}&_limit=${limit}`);
+        const data = await response.data;
         if (!data.length) throw Error('no data available');
         if (data) commit('SET_MOVIES', data);
       } catch (error: unknown) {
