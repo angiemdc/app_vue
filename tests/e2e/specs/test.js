@@ -11,4 +11,10 @@ describe('display search content', () => {
     cy.get('button[type=submit]').click();
     cy.contains('.found__container', '3 movie found');
   });
+  it('should redirect', () => {
+    cy.visit('/');
+    cy.get('.cards__component  li').first().click();
+    cy.url()
+      .should('be.equal', 'http://localhost:8080/details/337167');
+  });
 });
