@@ -29,7 +29,7 @@ export default {
     },
     primaryBtn: {
       type: String,
-      default: 'Title',
+      default: 'title',
     },
     secondaryBtn: {
       type: String,
