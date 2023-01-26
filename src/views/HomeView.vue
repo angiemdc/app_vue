@@ -17,9 +17,10 @@
 
 <script>
 import {
-  defineComponent, ref, onMounted, computed,
+  defineComponent, ref, onMounted, computed, watchEffect, onBeforeUnmount, watch,
 } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import HeaderMovie from '@/components/Header/Header.vue';
 import FoundMovie from '@/components/Found/Found.vue';
 import SearchInput from '@/components/Search/Search.vue';
@@ -34,6 +35,7 @@ export default defineComponent({
     HeaderMovie, FoundMovie, SearchInput, SearchFilter, CardsLayout,
   },
   setup() {
+    const router = useRouter();
     const movieLength = ref(0);
     const serchBy = ref('title');
     const { state: { moviesModule }, getters, dispatch } = useStore();
@@ -50,6 +52,10 @@ export default defineComponent({
     const handleSubmit = (value) => {
       dispatch('moviesModule/filterByTypes', { typicode: value, typeToSearch: serchBy.value });
       movieLength.value = moviesData.value.length;
+      router.replace({
+        path: '/',
+        query: { searchBy: serchBy.value, value },
+      });
     };
 
     const handleInput = (value) => {
@@ -61,6 +67,7 @@ export default defineComponent({
       dispatch('moviesModule/loadMovies');
       movieLength.value = moviesData.value.length;
     });
+
     return {
       moviesData,
       handleCLick,

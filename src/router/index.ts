@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import DetailsView from '../views/DetailsView.vue';
+import notFoundView from '../views/NotFoundVIew.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)',
     name: 'notFound',
-    component: HomeView,
+    component: notFoundView,
     props: true,
   },
 ];
