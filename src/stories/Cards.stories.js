@@ -1,5 +1,5 @@
 import CardsLayout from '../components/Cards/Cards.vue';
-import movieData from '../utilis/mock_data';
+import movieData from '../utils/mock_data';
 
 export default {
   title: 'Example/Cards',
@@ -27,6 +27,4 @@ export const NoItemFound = Template.bind({});
 export const WithData = Template.bind({});
 WithData.args = {
   data: movieData,
-
- 
 };

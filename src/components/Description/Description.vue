@@ -1,5 +1,5 @@
 <template>
-    <section class="description__section" v-if="movieDetails.title">
+    <section class="description__section" v-if="movieDetails?.title">
       <v-lazy-image :src="movieDetails.image" alt="movieImg" class="card__img" />
       <div class="description">
         <h1 class="heading-1">{{movieDetails.title}}</h1>
@@ -7,16 +7,16 @@
           <span class="heading-1">{{movieDetails.rating}}</span>
         </div>
         <h3 class="description__type heading-3">
-          {{$filters.movieTypesFormat((movieDetails.movieType))}}
+          {{movieTypesFormat((movieDetails.movieType))}}
         </h3>
         <h2 class="description__year heading-2 text--red">
-         {{$filters.yearFormat(movieDetails.year)}}
+         {{yearFormat(movieDetails.year)}}
         </h2>
         <h2 class="description__runtime heading-2 text--red">{{movieDetails.runtime}}</h2>
         <p class="description__text">{{movieDetails.description}}</p>
       </div>
     </section>
-    <section v-if="!movieDetails.title">
+    <section v-if="!movieDetails?.title">
       <h1 class="heading-1">Loading ...</h1>
     </section>
 </template>
@@ -30,7 +30,7 @@ import { isEmpty } from 'lodash';
 
 import getMovieDetails from '@/composables/getMovieDetails';
 import './description.scss';
-// import { testCart } from '../../utilis/mock_data';
+import { movieTypesFormat, yearFormat } from '../../utils/utils';
 
 export default {
   name: 'description-comp',
@@ -40,7 +40,7 @@ export default {
   props: ['movieId', 'genre', 'getGenreValue'],
   emit: ['getGenreValue'],
   setup(props) {
-    const idMovie = ref(props.movieId);
+    const idMovie = ref('');
     const route = useRoute();
     const { movieDetails, getMovie } = getMovieDetails();
     const { getters } = useStore();
@@ -64,7 +64,7 @@ export default {
     );
 
     onMounted(() => {
-      const selectedMovie = getters['moviesModule/selectedMovie'](Number(props.movieId));
+      const selectedMovie = getters['moviesModule/selectedMovie'] ? (getters['moviesModule/selectedMovie'](Number(props.movieId))) : getters.selectedMovie(Number(props.movieId));
       if (!isEmpty(selectedMovie)) {
         movieDetails.value = selectedMovie;
       } else {
@@ -73,7 +73,7 @@ export default {
     });
 
     return {
-      movieDetails,
+      movieDetails, movieTypesFormat, yearFormat,
     };
   },
 };

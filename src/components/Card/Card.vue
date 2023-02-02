@@ -14,8 +14,8 @@
         </div>
         <div class="card__info">
           <h4 class="card__text">{{title}}</h4>
-          <p class="card__text">{{$filters.yearFormat(year)}}</p>
-          <p class="card__text">{{$filters.movieTypesFormat(movieType)}}</p>
+          <p class="card__text">{{yearwithFormat}}</p>
+          <p class="card__text">{{movieFormat}}</p>
         </div>
       </div>
     </div>
@@ -27,7 +27,8 @@ import {
 } from 'vue';
 import './card.scss';
 import VLazyImage from 'v-lazy-image';
-import { testCart } from '../../utilis/mock_data';
+import { testCart } from '../../utils/mock_data';
+import { movieTypesFormat, yearFormat } from '../../utils/utils';
 
 export default {
   name: 'card-comp',
@@ -55,8 +56,12 @@ export default {
     const handleError = () => {
       image.value = props.imgPlaceholder;
     };
+
+    const movieFormat = movieTypesFormat(movieType);
+    const yearwithFormat = yearFormat(year);
+
     return {
-      title, movieType, image, year, id, handleError,
+      title, movieFormat, image, yearwithFormat, id, handleError,
     };
   },
 };
